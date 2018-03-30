@@ -46,8 +46,8 @@ module.exports = (env) => {
             // Plugins that apply in production builds only
             new webpack.optimize.UglifyJsPlugin(),
             new AotPlugin({
-                tsConfigPath: './tsconfig.json',
-                entryModule: path.join(__dirname, 'ClientApp/app/app.module.browser#AppModule'),
+                tsConfigPath: './tsconfig.json',                
+                entryModule: path.join(__dirname, 'ClientApp/app/app.browser.module#AppModule'),
                 exclude: ['./**/*.server.ts']
             })
         ])
@@ -67,8 +67,8 @@ module.exports = (env) => {
         ].concat(isDevBuild ? [] : [
             // Plugins that apply in production builds only
             new AotPlugin({
-                tsConfigPath: './tsconfig.json',
-                entryModule: path.join(__dirname, 'ClientApp/app/app.module.server#AppModule'),
+                tsConfigPath: './tsconfig.json',                
+                entryModule: path.join(__dirname, 'ClientApp/app/app.server.module#AppModule'),
                 exclude: ['./**/*.browser.ts']
             })
         ]),
